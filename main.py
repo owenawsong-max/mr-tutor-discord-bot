@@ -1,3 +1,9 @@
+import os
+from keep_alive import start as start_keep_alive
+
+if __name__ == '__main__':
+    start_keep_alive()  # Start Flask server FIRST
+
 import discord
 from discord.ext import commands
 from discord import app_commands
@@ -1026,4 +1032,6 @@ Or old $ versions: $setgloballimit, $setuserlimit, $removelimit, $togglebot, $en
                                     user_query, is_image_gen)
 
 if __name__ == "__main__":
+    from keep_alive import start as start_keep_alive
+    start_keep_alive()  # Start Flask server BEFORE bot.run()
     bot.run(DISCORD_BOT_TOKEN)
